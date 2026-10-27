@@ -1904,3 +1904,28 @@ body {
               visibility 0.3s ease;
 }
 
+
+/* Hide hero paragraph on mobile only */
+@media (max-width: 768px) {
+  .hero-copy p {
+    display: none !important;
+  }
+}
+
+/* Mobile Hero Button - Smaller Size */
+@media (max-width: 768px) {
+  .hero-copy .hero-button {
+    font-size: 8px;
+    padding: 10px 12px;
+    min-height: auto;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    width: auto;
+    gap: 6px;
+  }
+}
+
+
+
+
+
