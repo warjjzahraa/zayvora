@@ -1926,6 +1926,71 @@ body {
 }
 
 
+@media (max-width: 768px) {
+  .product-details,
+  .product-detail,
+  .product-page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
 
+  .product-details img,
+  .product-detail img,
+  .product-page img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+@media (max-width: 768px) {
+  .mystery-decoration {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    background: transparent;
+    box-sizing: border-box;
+  }
 
+  .mystery-monogram {
+    font-size: clamp(70px, 18vw, 110px);
+    line-height: 1;
+    opacity: 0.85;
+  }
 
+  .mystery-caption {
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mystery-monogram {
+    background: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+  }
+
+}
+@media (max-width: 768px) {
+  .mystery-monogram {
+    font-size: clamp(85px, 20vw, 120px) !important;
+    color: #E8BFC2 !important;
+    background: transparent !important;
+  }
+}
+/* Mobile: show the complete perfume image */
+@media (max-width: 768px) {
+  .product-details img,
+  .product-detail img,
+  .product-page img {
+    width: 100%;
+    height: auto;
+    max-height: 65vh;
+    object-fit: contain !important;
+    object-position: center;
+    display: block;
+  }
+}
