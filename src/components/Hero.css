@@ -1,0 +1,454 @@
+
+.z-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 65px 6% 35px;
+  color: #fff8f5;
+  background: linear-gradient(
+    115deg,
+    #091629 0%,
+    #14263d 48%,
+    #392536 100%
+  );
+  min-height: 690px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 25px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-copy {
+  animation: heroReveal 1s ease both;
+}
+
+.hero-eyebrow {
+  color: #e8bfc2;
+  letter-spacing: 4px;
+  font-size: 11px;
+}
+
+.hero-copy h1 {
+  margin: 24px 0 18px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(54px, 6.5vw, 94px);
+  line-height: 0.98;
+  font-weight: 400;
+}
+
+.hero-copy h1 span {
+  color: #e8bfc2;
+  font-style: italic;
+}
+
+.hero-copy > p {
+  max-width: 430px;
+  color: #d0d4df;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 24px;
+  padding: 15px 21px;
+  border: 1px solid #e8bfc2;
+  color: #fff8f5;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.hero-cta:hover {
+  background: #e8bfc2;
+  color: #14263d;
+}
+
+.hero-caption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 60px;
+  color: #aeb9c9;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.caption-line {
+  width: 38px;
+  height: 1px;
+  background: #e8bfc2;
+}
+
+.hero-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 440px;
+}
+
+.hero-perfume {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  max-width: 470px;
+  height: 420px;
+  object-fit: contain;
+  margin: 0 auto;
+  filter: drop-shadow(0 20px 45px #e8bfc244);
+  animation: perfumeFloat 4s ease-in-out infinite;
+}
+
+.hero-perfume.hero-image-error {
+  visibility: hidden;
+}
+
+.hero-orbit {
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  border: 1px solid #e8bfc226;
+  border-radius: 50%;
+  animation: orbitPulse 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.orbit-two {
+  width: 390px;
+  height: 390px;
+  border-color: #8eadd01c;
+  animation-delay: 1.5s;
+}
+
+.hero-particle {
+  position: absolute;
+  z-index: 3;
+  color: #f5c9d9;
+  animation: particleFloat 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.particle-one {
+  top: 15%;
+  left: 15%;
+  font-size: 24px;
+}
+
+.particle-two {
+  top: 25%;
+  right: 12%;
+  font-size: 30px;
+  animation-delay: 1s;
+}
+
+.particle-three {
+  bottom: 17%;
+  left: 20%;
+  font-size: 18px;
+  animation-delay: 2s;
+}
+
+.hero-image-label {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #e8bfc2;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+
+.hero-glow {
+  position: absolute;
+  z-index: -1;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.hero-glow-blue {
+  top: 0;
+  left: 20%;
+  background: #3676bc;
+}
+
+.hero-glow-pink {
+  top: 0;
+  right: 5%;
+  background: #ec8fb4;
+}
+
+.hero-collections {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  align-items: stretch;
+  gap: 15px;
+  max-width: 1400px;
+  margin: 35px auto 0;
+}
+
+.hero-collection-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 105px;
+  overflow: hidden;
+  border: 1px solid #ffffff24;
+  border-radius: 9px;
+  color: #fff8f5;
+  text-decoration: none;
+  background: #14263d;
+  animation: heroReveal 0.7s ease both;
+  animation-delay: calc(var(--card-index) * 0.15s);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.hero-collection-card:hover {
+  transform: translateY(-5px);
+  border-color: #e8bfc2;
+}
+
+.hero-collection-card img {
+  width: 100px;
+  height: 105px;
+  flex-shrink: 0;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.hero-collection-card:hover img {
+  transform: scale(1.08);
+}
+
+.collection-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, #14263d70);
+  pointer-events: none;
+}
+
+.collection-card-text {
+  position: relative;
+  z-index: 1;
+  padding: 10px;
+  min-width: 0;
+}
+
+.collection-card-text h3 {
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin: 0 0 8px;
+}
+
+.collection-card-text p {
+  color: #c6c9d4;
+  font-size: 10px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.collection-arrow {
+  margin-left: auto;
+  margin-right: 10px;
+  flex-shrink: 0;
+  color: #e8bfc2;
+}
+
+.hero-scroll-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #c6c9d4;
+  font-size: 8px;
+  letter-spacing: 1px;
+  writing-mode: vertical-rl;
+}
+
+@keyframes perfumeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-16px) rotate(18deg);
+    opacity: 1;
+  }
+}
+
+@keyframes orbitPulse {
+  0%, 100% {
+    transform: scale(0.96);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero-collections {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero-scroll-note {
+    display: none;
+  }
+
+  .hero-collection-card img {
+    width: 75px;
+  }
+}
+
+@media (max-width: 768px) {
+  .z-hero {
+    padding: 40px 5% 30px;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(54px, 12vw, 72px);
+  }
+
+  .hero-caption {
+    margin-top: 25px;
+  }
+
+  .hero-visual {
+    min-height: 350px;
+  }
+
+  .hero-perfume {
+    height: 340px;
+  }
+
+  .orbit-two {
+    width: 290px;
+    height: 290px;
+  }
+
+  .hero-collections {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .hero-collection-card {
+    min-height: 85px;
+  }
+
+  .hero-collection-card img {
+    width: 90px;
+    height: 85px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .z-hero *,
+  .z-hero *::before,
+  .z-hero *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+.hero-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 440px;
+  overflow: visible;
+}
+
+.hero-perfume {
+  display: block;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 470px;
+  height: 420px;
+  object-fit: contain;
+  opacity: 1;
+  visibility: visible;
+  margin: 0 auto;
+  animation: perfumeFloat 4s ease-in-out infinite;
+}
+
+@keyframes perfumeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-perfume {
+    height: 340px;
+  }
+}
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 420px;
+}
+
+.hero-perfume {
+  display: block;
+  width: 100%;
+  max-width: 470px;
+  height: 420px;
+  object-fit: contain;
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 10;
+}

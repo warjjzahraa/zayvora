@@ -1,39 +1,42 @@
 
+
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 
 const menPerfumes = [
-  { id: 1, name: "VANTAGE NOIR", price: 125, notes: "Black Pepper · Cedarwood", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
-  { id: 2, name: "BLUE VEIL", price: 110, notes: "Bergamot · Marine Accord", image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
-  { id: 3, name: "OBSIDIAN OUD", price: 145, notes: "Saffron · Oud · Amber", image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
-  { id: 4, name: "CEDAR THEORY", price: 95, notes: "Cedarwood · Cardamom", image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=600&q=80" },
-  { id: 5, name: "AFTER DARK", price: 135, notes: "Leather · Tonka Bean", image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=600&q=80" },
-  { id: 6, name: "NOIR ABSOLU", price: 118, notes: "Vetiver · Dark Woods", image: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=600&q=80" },
-  { id: 7, name: "ROYAL EMBER", price: 155, notes: "Amber · Spice · Musk", image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
-  { id: 8, name: "SILVER COAST", price: 105, notes: "Citrus · Sea Salt", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
-  { id: 9, name: "SMOKED SUEDE", price: 140, notes: "Suede · Incense", image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
-  { id: 10, name: "NIGHT LEGACY", price: 130, notes: "Patchouli · Vanilla", image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=600&q=80" },
+  { id: 1, name: "VANTAGE NOIR", price: 125, notes: "Black Pepper · Cedarwood", image: "/vantage-noir.jpg" },
+  { id: 2, name: "BLUE VEIL", price: 110, notes: "Bergamot · Marine Accord", image: "/blue-veil.jpg"},
+  { id: 3, name: "OBSIDIAN OUD", price: 145, notes: "Saffron · Oud · Amber", image: "/OBSIDIAN OUD.jpg" },
+  { id: 4, name: "CEDAR THEORY", price: 95, notes: "Cedarwood · Cardamom", image: "/CEDAR THEORY.jpg" },
+  { id: 5, name: "AFTER DARK", price: 135, notes: "Leather · Tonka Bean", image: "/after dark.jpg" },
+  { id: 6, name: "NOIR ABSOLU", price: 118, notes: "Vetiver · Dark Woods", image: "/amber theory.jpg" },
+   { id: 7, name: "NIGHT LEGACY", price: 130, notes: "Patchouli · Vanilla", image: "/night.jpg" },
+
+  { id: 8, name: "ROYAL EMBER", price: 155, notes: "Amber · Spice · Musk", image: "/royal.jpg" },
+  { id: 9, name: "SILVER COAST", price: 105, notes: "Citrus · Sea Salt", image: "/silver.jpg" },
+  { id: 10, name: "SMOKED SUEDE", price: 140, notes: "Suede · Incense", image: "/smoke.jpg" },
+  
 ];
 
 const womenPerfumes = [
-  { id: 11, name: "ROSE ÉCLAT", price: 120, notes: "Bulgarian Rose · Pear", image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
-  { id: 12, name: "VELVET BLOOM", price: 135, notes: "Jasmine · Vanilla", image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
-  { id: 13, name: "SILK BLUSH", price: 105, notes: "Peony · Pink Pepper", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
-  { id: 14, name: "MOONLIT IRIS", price: 140, notes: "Iris · Plum · Woods", image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=600&q=80" },
-  { id: 15, name: "AMBER PETAL", price: 115, notes: "Orange Blossom · Amber", image: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=600&q=80" },
-  { id: 16, name: "PEARL VEIL", price: 125, notes: "White Flowers · Musk", image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
-  { id: 17, name: "ROSE SILHOUETTE", price: 132, notes: "Rose · Sandalwood", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
-  { id: 18, name: "BLUSH NOCTURNE", price: 145, notes: "Vanilla · Soft Amber", image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
-  { id: 19, name: "PETAL MUSE", price: 99, notes: "Peony · Pear · Musk", image: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=600&q=80" },
-  { id: 20, name: "GOLDEN ROSE", price: 150, notes: "Rose · Saffron · Amber", image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=600&q=80" },
+  { id: 11, name: "ROSE ÉCLAT", price: 120, notes: "Bulgarian Rose · Pear", image: "/rose.jpg" },
+  { id: 12, name: "VELVET BLOOM", price: 135, notes: "Jasmine · Vanilla", image: "/velvet.jpg" },
+  { id: 13, name: "SILK BLUSH", price: 105, notes: "Peony · Pink Pepper", image: "/silkk.jpg" },
+  { id: 14, name: "MOONLIT IRIS", price: 140, notes: "Iris · Plum · Woods", image: "moon.jpg" },
+  { id: 15, name: "AMBER PETAL", price: 115, notes: "Orange Blossom · Amber", image: "/petal.jpg" },
+  { id: 16, name: "PEARL VEIL", price: 125, notes: "White Flowers · Musk", image: "/veil.jpg" },
+  { id: 17, name: "ROSE SILHOUETTE", price: 132, notes: "Rose · Sandalwood", image: "/silhourtte.jpg" },
+  { id: 18, name: "BLUSH NOCTURNE", price: 145, notes: "Vanilla · Soft Amber", image: "/blush.jpg" },
+  { id: 19, name: "PETAL MUSE", price: 99, notes: "Peony · Pear · Musk", image: "/pet.jpg" },
+  { id: 20, name: "GOLDEN ROSE", price: 150, notes: "Rose · Saffron · Amber", image: "/golden.jpg" },
 ];
 
 const unisexPerfumes = [
-  { id: 21, name: "AMBER THEORY", price: 150, notes: "Amber · Labdanum · Vanilla", image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" },
-  { id: 22, name: "SKIN & SMOKE", price: 130, notes: "White Musk · Incense", image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" },
-  { id: 23, name: "SAFFRON DUSK", price: 145, notes: "Saffron · Rose · Woods", image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80" },
-  { id: 24, name: "FIG NOCTURNE", price: 110, notes: "Fig · Green Leaves", image: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=600&q=80" },
-  { id: 25, name: "GOLDEN HOUR", price: 125, notes: "Bergamot · Neroli · Amber", image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=600&q=80" },
+  { id: 21, name: "AMBER THEORY", price: 150, notes: "Amber · Labdanum · Vanilla", image: "/amber theory.jpg" },
+  { id: 22, name: "SKIN & SMOKE", price: 130, notes: "White Musk · Incense", image: "/skinsmoke.jpg" },
+  { id: 23, name: "SAFFRON DUSK", price: 145, notes: "Saffron · Rose · Woods", image: "/suffrox.jpg" },
+  { id: 24, name: "FIG NOCTURNE", price: 110, notes: "Fig · Green Leaves", image: "/fig.jpg" },
+  { id: 25, name: "GOLDEN HOUR", price: 125, notes: "Bergamot · Neroli · Amber", image: "/go;den.jpg" },
 ];
 
 function ProductCarousel({
@@ -55,7 +58,7 @@ function ProductCarousel({
     let previousTime = 0;
     let position = track.scrollLeft;
 
-    const speed = 24;
+    const speed = 84;
 
     const animate = (time) => {
       if (!previousTime) previousTime = time;
@@ -90,9 +93,6 @@ function ProductCarousel({
           <span className="eyebrow">{subtitle}</span>
           <h2>{title}</h2>
         </div>
-        <span className="product-count">
-          {products.length} FRAGRANCES
-        </span>
       </div>
 
       {products.length === 0 ? (
@@ -266,7 +266,21 @@ function App() {
       </header>
 
       <main>
-        <section className="hero" id="home">
+       <section className="hero" id="home">
+  <img
+    className="hero-background-image"
+    src="hero.jpg"
+    alt="Luxury perfume bottle"
+    onError={(event) => {
+      event.currentTarget.style.display = "none";
+    }}
+  />
+
+  <div className="hero-copy">
+    
+
+
+  </div>
           <div className="hero-copy">
             <span className="eyebrow">
               THE ART OF LEAVING A TRACE
@@ -288,7 +302,7 @@ function App() {
             </a>
 
             <div className="hero-signature">
-              <span>01</span>
+              <span></span>
               <span>SCENT IS A FORM OF MEMORY</span>
             </div>
           </div>
@@ -323,8 +337,10 @@ function App() {
         ) : (
           <>
             <ProductCarousel
-              title="For Him"
-              subtitle="THE MASCULINE EDIT"
+              
+  title="The Gentlemen's Collection"
+  subtitle="BOLD · REFINED · TIMELESS"
+    
               products={men}
               theme="men-theme"
               onAdd={addToBag}
@@ -332,8 +348,10 @@ function App() {
             />
 
             <ProductCarousel
-              title="For Her"
-              subtitle="THE FEMININE EDIT"
+              
+  title="The Feminine Collection"
+  subtitle="SOFT · ELEGANT · CAPTIVATING"
+        
               products={women}
               theme="women-theme"
               onAdd={addToBag}
@@ -341,8 +359,10 @@ function App() {
             />
 
             <ProductCarousel
-              title="Made for Everyone"
-              subtitle="THE UNISEX EDIT"
+              
+  title="The Signature Collection"
+  subtitle="UNIVERSAL · DISTINCTIVE · UNFORGETTABLE"
+      
               products={unisex}
               theme="unisex-theme"
               onAdd={addToBag}

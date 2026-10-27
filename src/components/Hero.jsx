@@ -1,71 +1,132 @@
-
-import { ArrowDown, ArrowRight } from "lucide-react";
+import heroImage from "../assets/hero.png";
+import { ArrowRight, ArrowDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import "./Hero.css";
 
-const poster =
-  "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1920&q=85";
+const collections = [
+  {
+    name: "THE FEMME",
+    subtitle: "Soft. Bold. Unforgettable.",
+    image: "/petal.jpg",
+    path: "/shop?collection=women",
+  },
+  {
+    name: "THE MASCULINE",
+    subtitle: "Strength in Scent.",
+    image:
+      "/after dark.jpg",
+    path: "/shop?collection=men",
+  },
+  {
+    name: "THE UNISEX",
+    subtitle: "Beyond Boundaries.",
+    image:
+      "/blush.jpg",
+    path: "/shop?collection=unisex",
+  },
+];
 
 export default function Hero() {
   return (
-    <section className="hero">
+    <section className="z-hero">
       <img
-        className="hero-poster"
-        src={poster}
-        alt=""
-        fetchPriority="high"
-      />
+  className="hero-background-image"
+  src="hero.jpg"
+  alt="Luxury perfume bottle"
+/>
+      <div className="hero-glow hero-glow-blue" />
+      <div className="hero-glow hero-glow-pink" />
 
-      <video
-        className="hero-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={poster}
-        aria-hidden="true"
-        onError={(event) => {
-          event.currentTarget.style.display = "none";
-        }}
-      >
-        <source
-          src="/videos/hero-perfume.mp4"
-          type="video/mp4"
-        />
-      </video>
+      <div className="hero-content">
+        <div className="hero-copy">
+          <span className="hero-eyebrow">
+            THE ART OF PERFUMERY
+          </span>
 
-      <div className="hero-overlay" />
+          <h1>
+            Leave a <span>Trace.</span>
+          </h1>
 
-      <div className="hero-content container">
-        <span className="eyebrow">
-          THE ZAYVORA FRAGRANCE HOUSE
-        </span>
+          <p>
+            Discover fragrances that speak without words.
+            Find the scent that tells your story.
+          </p>
 
-        <h1>
-          Not Just a Fragrance.
-          <br />
-          <em>A Signature.</em>
-        </h1>
-
-        <p>
-          Discover extraordinary scents that express your
-          individuality and linger in memory.
-        </p>
-
-        <div className="hero-actions">
-          <Link to="/shop" className="btn btn-light">
-            EXPLORE THE COLLECTION <ArrowRight size={17} />
+          <Link to="/shop" className="hero-cta">
+            EXPLORE COLLECTION
+            <ArrowRight size={18} />
           </Link>
 
-          <Link to="/#finder" className="btn btn-outline-light">
-            FIND YOUR SIGNATURE
-          </Link>
+          <div className="hero-caption">
+            <span className="caption-line" />
+            CRAFTED TO BE REMEMBERED
+          </div>
+        </div>
+
+        <div className="hero-visual">
+          <div className="hero-orbit orbit-one" />
+          <div className="hero-orbit orbit-two" />
+
+          <div className="hero-particle particle-one">✦</div>
+          <div className="hero-particle particle-two">✧</div>
+          <div className="hero-particle particle-three">✦</div>
+
+         <img
+  src={heroImage}
+  alt="ZAYVORA Luxury Perfume"
+  style={{
+    display: "block",
+    width: "400px",
+    maxWidth: "100%",
+    height: "400px",
+    objectFit: "contain",
+    visibility: "visible",
+    opacity: 1,
+    position: "relative",
+    zIndex: 999
+  }}
+/>
+
+          <div className="hero-image-label">
+            <span>01 / SIGNATURE COLLECTION</span>
+            <span>EAU DE PARFUM</span>
+          </div>
         </div>
       </div>
 
-      <a href="#collections" className="hero-scroll">
-        <span>DISCOVER ZAYVORA</span>
-        <ArrowDown size={17} />
-      </a>
+      <div className="hero-collections">
+        {collections.map((item, index) => (
+          <Link
+            to={item.path}
+            className="hero-collection-card"
+            key={item.name}
+            style={{ "--card-index": index }}
+          >
+            <img
+              src={item.image}
+              alt={item.name}
+              loading="lazy"
+            />
+
+            <div className="collection-card-overlay" />
+
+            <div className="collection-card-text">
+              <h3>{item.name}</h3>
+              <p>{item.subtitle}</p>
+            </div>
+
+            <ArrowRight
+              className="collection-arrow"
+              size={18}
+            />
+          </Link>
+        ))}
+
+        <div className="hero-scroll-note">
+          <ArrowDown size={15} />
+          <span>DISCOVER YOUR SCENT</span>
+        </div>
+      </div>
     </section>
   );
 }
