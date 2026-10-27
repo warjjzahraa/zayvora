@@ -244,7 +244,7 @@ button {
 
 .product-image img {
   width: 100%;
-  height: 100%;
+  heig.quickht: 100%;
   display: block;
   object-fit: cover;
   transition: transform .6s ease;
@@ -254,6 +254,7 @@ button {
   transform: scale(1.05);
 }
 
+/* Add to Bag — Desktop Hover */
 .quick-add {
   position: absolute;
   bottom: 12px;
@@ -261,20 +262,34 @@ button {
   right: 12px;
   padding: 14px;
   border: none;
-  background: rgba(255, 255, 255, .94);
+  background: rgba(255, 255, 255, 0.96);
   color: #252525;
   font-size: 10px;
   letter-spacing: 1.5px;
   opacity: 0;
+  visibility: hidden;
   transform: translateY(8px);
-  transition: .25s ease;
+  transition: opacity 0.3s ease,
+              transform 0.3s ease,
+              visibility 0.3s ease;
 }
 
 .product-card:hover .quick-add,
 .quick-add:focus {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
 }
+
+/* Mobile — Always Visible */
+@media (max-width: 760px) {
+  .quick-add {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
 
 .product-info {
   padding: 18px 2px 5px;
@@ -1783,3 +1798,109 @@ body {
     height: 210px;
   }
 }
+/* ZAYVORA — Blended Luxury Logo */
+
+.brand {
+  color: #E8BFC2;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  letter-spacing: 3px;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.brand span {
+  color: #C9A5B5;
+  text-shadow: 0 0 18px rgba(232, 191, 194, 0.18);
+}
+
+/* Subtle luxury glow on hover */
+.brand:hover {
+  color: #FFF8F5;
+  text-shadow: 0 0 16px rgba(232, 191, 194, 0.25);
+}
+
+/* Footer logo blending */
+.footer-logo {
+  color: #E8BFC2;
+}
+
+.footer-logo span {
+  color: #C9A5B5;
+}
+.navbar .brand {
+  color: #14263D;
+}
+
+.navbar .brand span {
+  color: #B98598;
+}
+/* Same background for ZAYVORA logo and experience section */
+
+.mystery-section {
+  background: #14263D !important;
+}
+
+.mystery-decoration {
+  background: #14263D !important;
+}
+
+/* Logo image background */
+.mystery-decoration img,
+.mystery-logo {
+  background: #14263D !important;
+  display: block;
+}
+/* Same background for ZAYVORA logo and experience section */
+
+.mystery-section {
+  background: #14263D !important;
+}
+
+.mystery-decoration {
+  background: #14263D !important;
+}
+
+/* Logo image background */
+.mystery-decoration img,
+.mystery-logo {
+  background: #14263D !important;
+  display: block;
+}
+/* Soft Pink Hover Effect for ZAYVORA */
+
+.mystery-decoration {
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.mystery-decoration:hover {
+  background: #182b42 !important;
+  box-shadow: inset 0 0 70px rgba(232, 191, 194, 0.12);
+}
+
+/* ZAYVORA logo hover */
+.mystery-decoration:hover .mystery-monogram,
+.mystery-decoration:hover .mystery-logo {
+  color: #E8BFC2;
+  filter: drop-shadow(0 0 16px rgba(232, 191, 194, 0.4));
+  transition: all 0.4s ease;
+}
+
+/* Experience section subtle pink glow */
+.mystery-section {
+  transition: box-shadow 0.4s ease;
+}
+
+.mystery-section:hover {
+  box-shadow: inset 0 0 80px rgba(232, 191, 194, 0.08);
+}
+
+/* Add to Bag — Show on Hover */
+.product-card .add-to-bag {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease,
+              transform 0.3s ease,
+              visibility 0.3s ease;
+}
+

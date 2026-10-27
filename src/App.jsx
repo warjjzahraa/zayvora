@@ -150,7 +150,7 @@ function ProductCarousel({
                   className="view-product-btn"
                   onClick={() => onViewProduct(perfume)}
                 >
-                  VIEW PRODUCT <span>↗</span>
+                  VIEW PRODUCT <span></span>
                 </button>
               </div>
             </article>
@@ -298,7 +298,7 @@ function App() {
             </p>
 
             <a className="hero-button" href="#men-theme">
-              DISCOVER THE COLLECTION <span>↗</span>
+              DISCOVER THE COLLECTION <span></span>
             </a>
 
             <div className="hero-signature">
@@ -385,7 +385,7 @@ function App() {
               long after you have left the room.
             </p>
             <a className="mystery-button" href="#unisex-theme">
-              FIND YOUR SIGNATURE <span>↗</span>
+              FIND YOUR SIGNATURE <span></span>
             </a>
           </div>
 
@@ -425,7 +425,7 @@ function App() {
               aria-label="Your email address"
               required
             />
-            <button type="submit">SUBSCRIBE ↗</button>
+            <button type="submit">SUBSCRIBE </button>
           </form>
 
           <small>
@@ -527,14 +527,14 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Instagram ↗
+                Instagram 
               </a>
               <a
                 href="https://www.pinterest.com/"
                 target="_blank"
                 rel="noreferrer"
               >
-                Pinterest ↗
+                Pinterest 
               </a>
             </div>
           </div>
